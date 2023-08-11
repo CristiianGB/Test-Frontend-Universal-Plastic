@@ -14,11 +14,12 @@ export const ContextProvider = ({children}) => {
     //DATOS EJEMPLO DE COMO USAR EL CONTEXT DEL BOILERPLATE 
     const [latitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
+    const [slider, setSlider] = useState(1)
 
     
 
     // EN STORE ALMACENAMOS LOS DATOS PARA PASAR A TODA LA APP
-    const store = { latitude, longitude };
+    const store = { latitude, longitude, slider };
     
     // EN ACTIONS ALMACENAMOS TODAS LAS FUNCIONES QUE QUEREMOS PASAR AL RESTO DE LA FUNCION (EVITAR PONER setStates, usar handles intermedios)
     const actions = { 
@@ -53,6 +54,9 @@ export const ContextProvider = ({children}) => {
       updateLongitude: (newLongitude) => {
         setLongitude(newLongitude)
       },
+      onSliderChange: (currentValue) => {
+        setSlider(currentValue)
+    }
      };
 
     return(

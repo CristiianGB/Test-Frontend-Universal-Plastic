@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider"
 import "../styles/areaStyles.css"
+import useAppContext from "../store/Context";
 
 
 const Area = () => {
-    const [slider, setSlider] = useState(1)
+    const {store, actions } = useAppContext()
     const maxKm = 20 + "Km"
-    const areaRatio = `looking for ${slider}km (max. ${maxKm}).`
+    const areaRatio = `looking for ${store.slider}km (max. ${maxKm}).`
 
-    const aux = (currentValue) => {
-        setSlider(currentValue)
-        console.log(slider)
-    }
+    
     return (
         <>
             <div className="container-fluid">
@@ -25,7 +23,7 @@ const Area = () => {
                 </div>
                 <div className="row">
                     <div className="col-12 my-4 pb-2">
-                        <Slider onValueChange={aux} value={[slider]} max={20} step={1} />
+                        {store.slider ?<Slider onValueChange={actions.onSliderChange} value={[store.slider]} max={20} step={1} />: "wait"}
                     </div>
                 </div>
             </div>
