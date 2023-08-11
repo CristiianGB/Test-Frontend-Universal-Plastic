@@ -1,7 +1,7 @@
 import React from "react"
 import '../styles/mapStyles.css'
 import "leaflet/dist/leaflet.css"
-import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer, Popup, Circle } from 'react-leaflet'
 import { Icon, divIcon } from 'leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 
@@ -45,15 +45,18 @@ const Map = () => {
           attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
           url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
         />
+        {/* <Circle center={[48.8566, 2.3522]} radius={200} /> make circle */}
         <MarkerClusterGroup
           chunkedLoading
           iconCreateFunction={createCustomClusterIcon}
         >
+            
         {markers.map(marker=> (
           <Marker 
             position={marker.geocode}
             icon={customIcon}
           >
+            
             <Popup>
               <h2>{marker.popUp}</h2>
             </Popup>

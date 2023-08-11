@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/locationStyles.css"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 
-const Location = () => {
+const Location = ({latitude, longitude}) => {
     return (
         <>
             <div className="container-fluid">
@@ -15,17 +15,12 @@ const Location = () => {
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        
                             <Label htmlFor="latitude">Latitude</Label>
-                            <Input type="latitude" id="latitude" placeholder="Latitude" />
-
-                        
+                            <Input value={latitude} type="latitude" id="latitude" placeholder="Latitude" />
                     </div>
                     <div className="col-6">
-                        
                             <Label htmlFor="longitude">Longitude</Label>
-                            <Input type="longitude" id="longitude" placeholder="Longitude" />  
-                            
+                            <Input value={longitude} type="longitude" id="longitude" placeholder="Longitude" />  
                     </div>
                 </div>
             </div>
