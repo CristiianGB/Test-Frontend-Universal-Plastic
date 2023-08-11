@@ -1,0 +1,28 @@
+/* sizing of map container */
+
+.leaflet-container {
+    height: 70vh;
+    width: 80%;
+  }
+  @media (max-width: 768px) {
+    .leaflet-container {
+      height: 50vh
+    }
+  }
+   /* styling cluster icon */
+   
+  .cluster-icon{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 1px solid #ABB2BA;
+    background-color: #fff;
+    color: gray;
+    transform: translate(-25%, -25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: .95rem;
+  }
+  
