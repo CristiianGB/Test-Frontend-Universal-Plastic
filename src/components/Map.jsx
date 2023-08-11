@@ -1,12 +1,35 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import '../styles/mapStyles.css'
 import "leaflet/dist/leaflet.css"
 import { MapContainer, Marker, TileLayer, Popup, Circle } from 'react-leaflet'
-import { Icon, divIcon } from 'leaflet'
+import { Icon, divIcon} from 'leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
+import useAppContext from "../store/Context"
+import useGeoLocation from "../hooks/useGeoLocation"
 
-const Map = () => {
-  const markers = [
+const Map = ({latitude, longitude}) => {
+    const center = [latitude, longitude]
+    const ZOOM_LEVEL = 13
+    const location = useGeoLocation();
+    const mapRef = useRef()
+    
+    const showMyLocation = () => {
+        if(location.loaded && !location.error){
+            mapRef.current.leafletElement.flyTo(
+                [location.coordinates.latitude, location.coordinates.longitude],
+                ZOOM_LEVEL,
+                {animate: true})
+        }else{
+            console.log(location)
+        }
+    }
+
+    useEffect(()=>{
+        showMyLocation()
+    }, [])
+
+
+    const markers = [
     {
       geocode: [48.86, 2.3522],
       popUp: "Hello, I'm marker 1"
@@ -34,11 +57,12 @@ const Map = () => {
   }
 
   
+  console.log(location)
 
   return (
     <>
       <MapContainer 
-        center={[48.8566, 2.3522]}
+        center={[location.coordinates.latitude, location.coordinates.longitude]}
         zoom={13}
       >
         <TileLayer
@@ -51,8 +75,9 @@ const Map = () => {
           iconCreateFunction={createCustomClusterIcon}
         >
             
-        {markers.map(marker=> (
+        {markers.map((marker, i)=> (
           <Marker 
+            key={i}
             position={marker.geocode}
             icon={customIcon}
           >
@@ -63,6 +88,12 @@ const Map = () => {
           </Marker>
         ))}
         </MarkerClusterGroup>
+        {location.loaded && !location.error && (
+            <Marker 
+            position={[location.coordinates.latitude, location.coordinates.longitude]}
+            icon={customIcon}
+            ></Marker>
+        )}
       </MapContainer>
     </>
   )

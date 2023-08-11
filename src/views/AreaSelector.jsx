@@ -1,44 +1,24 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import Map from "../components/Map"
 import Location from "../components/Location"
 import Area from "../components/Area"
+import useAppContext from "../store/Context"
 
 function AreaSelector() {
-  const [latitude, setLatitude] = useState()
-  const [longitude, setLongitude] = useState()
+  const {store, actions} = useAppContext()
+  
 
-  const takeCoordinates = () => {
-    if (!("geolocation" in navigator)) {
-      return alert("Your navigator doesn't support the geolocation, try another one please!");
-    }
+  useEffect(()=>{
+    actions.takeCoordinates()
+  },[])
   
-    const onCoordinatesObtained = ubicacion => {
-      setLatitude(ubicacion.coords.latitude)
-      setLongitude(ubicacion.coords.longitude)
-      console.log("Tengo la ubicación: ", ubicacion.coords.latitude);
-    }
-    
-    const onUbicationError = err => {
-      console.log("Error obteniendo ubicación: ", err);
-    }
-  
-    const requestOptions = {
-      enableHighAccuracy: true, // Alta precisión
-      maximumAge: 0, // No queremos caché
-      timeout: 5000 // Esperar solo 5 segundos
-    };
-    // Solicitar
-    navigator.geolocation.getCurrentPosition(onCoordinatesObtained, onUbicationError, requestOptions);
-  
-  };
-  takeCoordinates()
   
   return (
     <>
       <div className="container-fluid">
         <div className="row">
           <div className="col-12">
-            <Location latitude={latitude} longitude={longitude} />
+            <Location  />
           </div>
         </div><div className="row">
           <div className="col-12">
@@ -47,7 +27,7 @@ function AreaSelector() {
         </div>
         <div className="row">
           <div className="col-12 d-flex justify-content-center">
-            <Map />
+            <Map latitude={store.latitude ? store.latitude : 42} longitude={store.longitude ? store.longitude : 2.2}/>
           </div>
         </div>
       </div>
