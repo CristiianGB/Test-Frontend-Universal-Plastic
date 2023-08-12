@@ -46,7 +46,7 @@ const Weather = (props) => {
                     <div className="col-6 location">
                         <h5 className="weather-title">LOCATION</h5>
                         <div className="d-flex mt-2">
-                        <img classname="wather-marker-icon " src={icon} alt="" /> 
+                        <img className="wather-marker-icon " src={icon} alt="" /> 
                         <p className="weather-info mx-1">{props.weatherName}</p>
                         </div>
                     </div>

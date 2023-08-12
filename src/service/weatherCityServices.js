@@ -6,7 +6,6 @@ export const getWeather = (latitude, longitude, setWeather) => {
         .then((response)=>response.json())
         .then((data)=>{
             setWeather(data)
-            console.log(data)
         })
     } catch (error) {
         console.log(error)

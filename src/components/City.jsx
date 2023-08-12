@@ -38,7 +38,7 @@ const City = () => {
                                 <SelectValue placeholder="City" />
                             </SelectTrigger>
                             <SelectContent>
-                                {locations.map((location)=> <SelectItem  value={location}>{location.city}</SelectItem>)}
+                                {locations.map((location,i)=> <SelectItem key={i} value={location}>{location.city}</SelectItem>)}
                             </SelectContent>
                         </Select>
                     </div>
