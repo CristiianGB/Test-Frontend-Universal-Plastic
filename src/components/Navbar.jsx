@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import loactionIcon from "../assets/loactionIcon.svg"
+import "../styles/navbarStyles.css"
+import locationIcon from "../assets/locationIcon.svg"
 import weatherIcon from "../assets/weatherIcon.svg"
 import {
     NavigationMenu,
@@ -20,14 +21,16 @@ const Navbar = () => {
             <NavigationMenuItem>
                     <Link to="/">
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Location
+                            <img src={locationIcon} alt="location icon" />
+                            <tool-tip role="tool-tip">Location</tool-tip>
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link to="/weather-city">
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Weather City
+                            <img src={weatherIcon} alt="weather icon" />
+                            <tool-tip role="tool-tip">Weather</tool-tip>
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

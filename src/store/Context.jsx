@@ -15,6 +15,7 @@ export const ContextProvider = ({children}) => {
     const [latitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
     const [slider, setSlider] = useState(1)
+    const [ city, setCity ] = useState()
 
     
 
@@ -35,6 +36,7 @@ export const ContextProvider = ({children}) => {
         }
         
         const onUbicationError = err => {
+          alert("Error obteniendo ubicación")
           console.log("Error obteniendo ubicación: ", err);
         }
       
@@ -56,7 +58,11 @@ export const ContextProvider = ({children}) => {
       },
       onSliderChange: (currentValue) => {
         setSlider(currentValue)
-    }
+      },
+      onCityChange: (currentCity) => {
+        setCity(currentCity)
+      }
+      
      };
 
     return(

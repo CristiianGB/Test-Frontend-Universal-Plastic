@@ -20,7 +20,7 @@ function AreaSelector() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12">
-            <h1 className="area-selector-title text-center mt-1">Area Selector</h1>
+            <h1 className="area-selector-title text-center mt-3">Area Selector</h1>
           </div>
         </div>
         <div className="row">

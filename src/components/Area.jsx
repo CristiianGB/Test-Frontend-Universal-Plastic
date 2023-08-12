@@ -23,7 +23,7 @@ const Area = () => {
                 </div>
                 <div className="row">
                     <div className="col-12 my-4 pb-2">
-                        {store.slider ?<Slider onValueChange={actions.onSliderChange} value={[store.slider]} max={20} step={1} />: "wait"}
+                        {store.slider ?<Slider onValueChange={actions.onSliderChange} value={[store.slider]} max={20} step={.1} />: ""}
                     </div>
                 </div>
             </div>
