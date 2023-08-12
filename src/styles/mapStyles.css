@@ -6,7 +6,7 @@
   }
   @media (max-width: 768px) {
     .leaflet-container {
-      height: 50vh
+      height: 47vh
     }
   }
    /* styling cluster icon */

@@ -30,7 +30,7 @@ const Weather = (props) => {
                     </div>
                     <div className="col-6 weather-description">
                         <h5 className="weather-title">DESCRIPTION</h5>
-                        <p className="weather-info mt-2">{props.weatherTypeDescription}</p>
+                        <p className="weather-info mt-2">{props.weatherTypeDescription}: {props.weatherClouds}%</p>
                     </div>
                 </div>
                 <Separator className="my-2" />

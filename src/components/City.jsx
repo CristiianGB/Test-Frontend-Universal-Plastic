@@ -57,7 +57,7 @@ const City = () => {
                                     weatherTemperature={weather?.main?.temp}
                                     weatherFeelsLike={weather?.main?.feels_like}
                                     weatherHumidity={weather?.main?.humidity}
-
+                                    weatherClouds={weather?.clouds?.all}
                                 />
                             </>
                         ):("")}

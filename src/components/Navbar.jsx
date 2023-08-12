@@ -6,16 +6,14 @@ import weatherIcon from "../assets/weatherIcon.svg"
 import {
     NavigationMenu,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
-    navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
 
 const Navbar = () => {
     return (
         <>
             <div className="container-fluid">
-                <div className="row my-2" >
+                <div className="row mt-3" >
                     <div className="col-12 d-flex justify-content-center">
                         <NavigationMenu>
                             <NavigationMenuList>

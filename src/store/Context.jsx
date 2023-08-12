@@ -19,33 +19,29 @@ export const ContextProvider = ({children}) => {
 
     
 
-    // EN STORE ALMACENAMOS LOS DATOS PARA PASAR A TODA LA APP
+    
     const store = { latitude, longitude, slider };
     
-    // EN ACTIONS ALMACENAMOS TODAS LAS FUNCIONES QUE QUEREMOS PASAR AL RESTO DE LA FUNCION (EVITAR PONER setStates, usar handles intermedios)
+    
     const actions = { 
         takeCoordinates: () => {
         if (!("geolocation" in navigator)) {
           return alert("Your navigator doesn't support the geolocation, try another one please!");
         }
-      
         const onCoordinatesObtained = ubicacion => {
           setLatitude(ubicacion.coords.latitude)
           setLongitude(ubicacion.coords.longitude)
-          
         }
-        
         const onUbicationError = err => {
-          alert("Error obteniendo ubicación")
-          console.log("Error obteniendo ubicación: ", err);
+          return alert("Error obteniendo ubicación")
         }
-      
+
         const requestOptions = {
-          enableHighAccuracy: true, // Alta precisión
-          maximumAge: 0, // No queremos caché
-          timeout: 5000 // Esperar solo 5 segundos
+          enableHighAccuracy: true, 
+          maximumAge: 0, 
+          timeout: 5000
         };
-        // Solicitar
+     
         navigator.geolocation.getCurrentPosition(onCoordinatesObtained, onUbicationError, requestOptions);
       
       },
@@ -72,7 +68,7 @@ export const ContextProvider = ({children}) => {
     )
 };
 
- // ESTE ES EL CUSTOM HOOK QUE DEBEMOS USAR PARA IMPORTAR DATOS DEL CONTEXTO
+ 
 const useAppContext = () => useContext(Context);
 
 export default useAppContext;

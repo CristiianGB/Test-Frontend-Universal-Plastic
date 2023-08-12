@@ -19,12 +19,11 @@ const Location = () => {
                 <div className="row">
                     <div className="col-6">
                             <Label htmlFor="latitude">Latitude</Label>
-                            <Input onChange={(e)=> actions.updateLatitude(e.target.value)} defaultValue={store.latitude} type="number" id="latitude" placeholder="Latitude" />
+                            <Input min={-90} max={90} onChange={(e)=> actions.updateLatitude(e.target.value)} defaultValue={store.latitude} type="number" id="latitude" placeholder="Latitude" />
                     </div>
                     <div className="col-6">
                             <Label htmlFor="longitude">Longitude</Label>
-                            <Input onChange={(e)=> {
-                                console.log(store.longitude);
+                            <Input min={-180} max={180} onChange={(e)=> {
                                 actions.updateLongitude(e.target.value)
                                 }} defaultValue={store.longitude} type="number" id="longitude" placeholder="Longitude" />  
                     </div>
