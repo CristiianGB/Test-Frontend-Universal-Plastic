@@ -1,0 +1,5 @@
+.weather-container-row{
+    display: flex;
+    justify-content: center;
+    margin: 4vh 2vh
+}

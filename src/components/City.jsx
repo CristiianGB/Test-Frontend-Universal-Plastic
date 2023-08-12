@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/cityStyles.css"
 import { locations } from "../constants/index.js"
 import { getWeather } from "../service/weatherCityServices.js";
 import {
@@ -9,6 +10,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import useAppContext from "../store/Context";
+import Weather from "./Weather.jsx";
 
 const City = () => {
     const {store, actions} = useAppContext
@@ -41,12 +43,22 @@ const City = () => {
                         </Select>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row weather-container-row">
                     <div className="col-12">
-                        {weather!=undefined? (
+                        {weather.coord? (
                             <>
-                            <h1>{weather.main?.temp}</h1>
-                            <h1>{weather.wind?.speed}</h1>
+                                <Weather 
+                                    weatherIcon={weather?.weather[0]?.icon}
+                                    weatherType={weather?.weather[0]?.main}
+                                    weatherTypeDescription={weather?.weather[0]?.description}
+                                    weatherSunset={weather?.sys?.sunset}
+                                    weatherSunrise={weather?.sys?.sunrise}
+                                    weatherName={weather?.name}
+                                    weatherTemperature={weather?.main?.temp}
+                                    weatherFeelsLike={weather?.main?.feels_like}
+                                    weatherHumidity={weather?.main?.humidity}
+
+                                />
                             </>
                         ):("")}
                     </div>

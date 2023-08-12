@@ -1,0 +1,16 @@
+.weather-container{
+    border: 2px solid #0F172A;
+    border-radius: .5rem;
+    padding: 1.5rem;
+}
+.weather-title{
+    font-size: .75rem;
+    color: #64748B;
+}
+.weather-icon{
+    display: flex;
+    justify-content: flex-end;
+}
+.weather-info{
+    font-weight: 600;
+}

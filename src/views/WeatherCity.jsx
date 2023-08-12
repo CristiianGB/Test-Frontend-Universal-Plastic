@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom";
 import "../styles/weatherCityStyles.css"
 import useAppContext from "../store/Context";
 import City from "../components/City";
