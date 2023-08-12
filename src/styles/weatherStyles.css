@@ -1,8 +1,9 @@
 .weather-container{
     border: 2px solid #0F172A;
     border-radius: .5rem;
-    padding: 1.5rem;
+    padding: 1.5rem;  
 }
+
 .weather-photo{
     object-fit: contain;
     min-width: 38px;
