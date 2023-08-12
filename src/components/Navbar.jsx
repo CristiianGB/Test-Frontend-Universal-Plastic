@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import loactionIcon from "../assets/loactionIcon.svg"
+import weatherIcon from "../assets/weatherIcon.svg"
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
     navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
 

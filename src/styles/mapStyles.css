@@ -1,7 +1,7 @@
 /* sizing of map container */
 
 .leaflet-container {
-    height: 65vh;
+    height: 60vh;
     width: 80%;
   }
   @media (max-width: 768px) {
@@ -25,4 +25,13 @@
     font-weight: 700;
     font-size: .95rem;
   }
+  
+  /* Map area blurr effect */
+
+  
+  
+  
+  
+  
+  
   
