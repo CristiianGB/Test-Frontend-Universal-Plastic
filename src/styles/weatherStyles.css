@@ -3,6 +3,10 @@
     border-radius: .5rem;
     padding: 1.5rem;
 }
+.weather-photo{
+    object-fit: contain;
+    min-width: 38px;
+}
 .weather-title{
     font-size: .75rem;
     color: #64748B;

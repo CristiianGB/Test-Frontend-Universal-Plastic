@@ -1,5 +1,6 @@
 import React from "react"
 import "../styles/weatherStyles.css"
+import icon from "../assets/weatherLocationIcon.svg"
 import { Separator } from "@/components/ui/separator"
 import { Progress } from "@/components/ui/progress"
 
@@ -19,47 +20,57 @@ const Weather = (props) => {
     return (
         <>
             <div className="container-fluid weather-container">
-                <div className="row d-flex">
+                <div className="row d-flex weather-description-row my-2">
                     <div className="col-2 weather-icon">
-                        <img src={`https://openweathermap.org/img/wn/${props.weatherIcon}.png`} alt="weather icon" />
+                        <img className="img-fluid weather-photo" src={`https://openweathermap.org/img/wn/${props.weatherIcon}.png`} alt="weather icon" />
                     </div>
                     <div className="col-3 weather-type">
                         <h5 className="weather-title">WEATHER</h5>
-                        <p className="weather-info">{props.weatherType}</p>
+                        <p className="weather-info mt-2">{props.weatherType}</p>
                     </div>
                     <div className="col-6 weather-description">
                         <h5 className="weather-title">DESCRIPTION</h5>
-                        <p className="weather-info">{props.weatherTypeDescription}</p>
+                        <p className="weather-info mt-2">{props.weatherTypeDescription}</p>
                     </div>
                 </div>
-                <Separator />
-                <div className="row d-flex">
+                <Separator className="my-2" />
+                <div className="row d-flex sunset-sunrise-location-row my-3">
                     <div className="col-3 sunset">
                         <h5 className="weather-title">SUNSET</h5>
-                        <p className="weather-info">{milisecondsToTime(props.weatherSunset)}</p>
+                        <p className="weather-info mt-2">{milisecondsToTime(props.weatherSunset)}</p>
                     </div>
                     <div className="col-3 sunrise">
                         <h5 className="weather-title">SUNRISE</h5>
-                        <p className="weather-info">{milisecondsToTime(props.weatherSunrise)}</p>
+                        <p className="weather-info mt-2">{milisecondsToTime(props.weatherSunrise)}</p>
                     </div>
                     <div className="col-6 location">
                         <h5 className="weather-title">LOCATION</h5>
-                        <p className="weather-info">{props.weatherName}</p>
+                        <div className="d-flex mt-2">
+                        <img classname="wather-marker-icon " src={icon} alt="" /> 
+                        <p className="weather-info mx-1">{props.weatherName}</p>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row d-flex temperature-feels-like-row my-3">
                     <div className="col-5">
                         <h5 className="weather-title">TEMPERATURE</h5>
-                        <p className="weather-info">{props.weatherTemperature}</p>
+                        <p className="weather-info mt-2">{props.weatherTemperature} ºC</p>
                     </div>
                     <div className="col-5">
                         <h5 className="weather-title">FEELS LIKE</h5>
-                        <p className="weather-info">{props.weatherFeelsLike}</p>
+                        <p className="weather-info mt-2">{props.weatherFeelsLike} ºC</p>
                     </div>
                 </div>
                 <div className="row">
+                    
+                    <div className="col-12 text-end text-placeholder">
+                        <p>{`${props.weatherHumidity}% humidity`}</p>
+                    </div>
+                    
+                </div>
+                <div className="row progress-row mt-2">
                     <div className="col-12">
-                        <Progress value={props.weatherHumidity} />
+                        <Progress className="my-2" value={props.weatherHumidity} />
                     </div>
                 </div>
             </div>

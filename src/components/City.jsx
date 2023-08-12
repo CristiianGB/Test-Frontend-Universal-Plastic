@@ -43,7 +43,7 @@ const City = () => {
                         </Select>
                     </div>
                 </div>
-                <div className="row weather-container-row">
+                <div className="row weather-container-row mt-3">
                     <div className="col-12">
                         {weather.coord? (
                             <>
