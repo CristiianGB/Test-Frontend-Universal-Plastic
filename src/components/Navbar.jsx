@@ -17,8 +17,8 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="container-fluid">
-                <div className="row mt-3" >
+            <div className="container-fluid fixed-bottom">
+                <div className="row mb-3" >
                     <div className="col-12 d-flex justify-content-center">
                         <NavigationMenu>
                             <NavigationMenuList>
