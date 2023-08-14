@@ -1,5 +1,5 @@
 # Universal Plastic Front End Test
-The web app will be developed using React and the use of tailwind will be appreciated. We also encourage you to use the components that you can find here.
+The web app will be developed using React and the use of tailwind will be appreciated. We also encourage you to use the components that you can find here ( Shadcn/ui components ).
 
 The app will have two screens:
  - Area selector
